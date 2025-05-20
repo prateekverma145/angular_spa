@@ -10,7 +10,11 @@ A full-stack application for managing person records, built with Angular (fronte
 - Delete person records
 - Responsive design with Tailwind CSS
 - RESTful API backend
-
+## Screenshots
+![ss1](./public/ss1.png)
+![ss2](./public/ss2.png)
+![ss3](./public/ss3.png)
+![ss4](./public/ss4.png)
 ## Tech Stack
 
 ### Frontend
