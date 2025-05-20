@@ -1,0 +1,45 @@
+<h2 class="text-2xl font-semibold mb-4">Person List</h2>
+
+<button
+  (click)="createPerson()"
+  class="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+>
+  Create New Person
+</button>
+
+<table class="min-w-full bg-white border border-gray-300 shadow rounded-lg">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Name</th>
+      <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Age</th>
+      <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Gender</th>
+      <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Mobile number</th>
+      <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let person of persons"
+      class="border-t hover:bg-gray-50 transition"
+    >
+      <td class="px-4 py-2">{{ person.Name }}</td>
+      <td class="px-4 py-2">{{ person.Age }}</td>
+      <td class="px-4 py-2">{{ person.Gender }}</td>
+      <td class="px-4 py-2">{{ person['Mobile number'] }}</td>
+      <td class="px-4 py-2 space-x-2">
+        <button
+          (click)="editPerson(person._id!)"
+          class="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500"
+        >
+          Edit
+        </button>
+        <button
+          (click)="deletePerson(person._id!)"
+          class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

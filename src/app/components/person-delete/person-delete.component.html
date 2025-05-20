@@ -1,0 +1,31 @@
+<h2 class="text-2xl font-semibold mb-4 text-red-600">Confirm Delete</h2>
+
+<div *ngIf="person" class="max-w-md bg-white p-6 rounded-lg shadow space-y-4 border border-red-200">
+  <p class="text-gray-800">Are you sure you want to delete the following person?</p>
+
+  <div class="space-y-1 text-sm text-gray-700">
+    <p><strong>Name:</strong> {{ person.Name }}</p>
+    <p><strong>Age:</strong> {{ person.Age }}</p>
+    <p><strong>Gender:</strong> {{ person.Gender }}</p>
+    <p><strong>Mobile Number:</strong> {{ person['Mobile number'] }}</p>
+  </div>
+
+  <div class="mt-4 flex space-x-4">
+    <button
+      (click)="confirmDelete()"
+      class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+    >
+      Yes, Delete
+    </button>
+    <button
+      (click)="cancelDelete()"
+      class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+    >
+      Cancel
+    </button>
+  </div>
+</div>
+
+<div *ngIf="!person" class="text-gray-600">
+  <p>Loading person data...</p>
+</div>

@@ -1,59 +1,173 @@
-# RightDoctor
+# Person Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+A full-stack application for managing person records, built with Angular (frontend) and Node.js/Express/MongoDB (backend).
 
-## Development server
+## Features
 
-To start a local development server, run:
+- List all persons
+- Create new person records
+- Edit existing person records
+- Delete person records
+- Responsive design with Tailwind CSS
+- RESTful API backend
 
+## Tech Stack
+
+### Frontend
+- Angular 19
+- Tailwind CSS
+- TypeScript
+- Angular Router
+- Angular HttpClient
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- CORS
+- Body Parser
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- Angular CLI (v19 or higher)
+
+## Installation
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+```bash
+cd backend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start MongoDB service on your machine
+
+4. Start the backend server:
+```bash
+node index.js
+```
+The server will run on http://localhost:3000
+
+### Frontend Setup
+
+1. Navigate to the project root directory:
+```bash
+cd ..
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
 ```bash
 ng serve
 ```
+The application will be available at http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## API Documentation
 
-## Code scaffolding
+### Person Endpoints
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+#### GET /person
+- Returns a list of all persons
+- Response: Array of person objects
 
-```bash
-ng generate component component-name
+#### GET /person/:id
+- Returns a single person by ID
+- Response: Person object
+
+#### POST /person
+- Creates a new person
+- Request Body:
+  ```json
+  {
+    "Name": "string",
+    "Age": "number",
+    "Gender": "Male" | "Female",
+    "Mobile number": "string"
+  }
+  ```
+- Response: Created person object
+
+#### PUT /person/:id
+- Updates an existing person
+- Request Body: Same as POST
+- Response: Updated person object
+
+#### DELETE /person/:id
+- Deletes a person
+- Response: Success message
+
+## Data Model
+
+### Person Schema
+```javascript
+{
+  Name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Age: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  Gender: {
+    type: String,
+    required: true,
+    enum: ["Male", "Female"],
+    trim: true
+  },
+  "Mobile number": {
+    type: String,
+    required: true,
+    trim: true
+  }
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Error Handling
 
-```bash
-ng generate --help
-```
+The application includes comprehensive error handling:
+- Validation errors (400 Bad Request)
+- Not found errors (404 Not Found)
+- Server errors (500 Internal Server Error)
+- Database connection errors
 
-## Building
+## Development
 
-To build the project run:
+### Backend Development
+- The backend uses Express.js for routing
+- MongoDB with Mongoose for data persistence
+- CORS enabled for cross-origin requests
+- Body parser for JSON request handling
 
-```bash
-ng build
-```
+### Frontend Development
+- Angular components for UI
+- Reactive forms for data input
+- Tailwind CSS for styling
+- Angular Router for navigation
+- HTTP Client for API communication
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Contributing
 
-## Running unit tests
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## License
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License - see the LICENSE file for details.

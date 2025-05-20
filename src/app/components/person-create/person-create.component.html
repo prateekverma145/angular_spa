@@ -1,0 +1,54 @@
+<h2 class="text-2xl font-semibold mb-4">Create New Person</h2>
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()" class="max-w-md bg-white p-6 rounded-lg shadow space-y-4">
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="Name"
+      class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+    />
+  </div>
+
+  <div>
+    <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+    <input
+      id="age"
+      type="number"
+      formControlName="Age"
+      class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+    />
+  </div>
+
+  <div>
+    <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+    <select
+      id="gender"
+      formControlName="Gender"
+      class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+    >
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="mobileNumber" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+    <input
+      id="mobileNumber"
+      type="text"
+      formControlName="Mobile number"
+      class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+    />
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="!personForm.valid"
+    class="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+  >
+    Create
+  </button>
+</form>
